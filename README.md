@@ -222,9 +222,10 @@ export default function PokemonSprite({ id, name, size = 'md' }) {
 Üç prop qəbul edir. `id` — Pokemon nömrəsi (URL-i qurmaq üçün). `name` — şəkil yüklənməsə göstərilən alternativ mətn (`alt` atributu). `size = 'md'` — default ölçü `'md'` (80×80px); `'sm'` verildikdə 44×44px olur.
 
 ```jsx
-  const url = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`
+  const paddedId = String(id).padStart(3, '0')
+  const url = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${paddedId}.png`
 ```
-Template literal ilə sprite URL-i dinamik yaradılır. `${id}` — Pokemon-un id nömrəsi URL-ə yerləşdirilir. GitHub-da PokeAPI-nin rəsmi sprite arxiv linkidir. URL məntiqi indi yalnız bu bir komponentdədir; `PokemonCard` və `TeamList` bu konstantı ayrıca yaratmır.
+`String(id).padStart(3, '0')` — id rəqəmini 3 simvola qədər sıfırla doldurur: `4` → `'004'`, `25` → `'025'`, `94` → `'094'`. Rəsmi Pokemon saytının URL formatı bunu tələb edir. Template literal ilə tam URL qurulur. URL məntiqi indi yalnız bu bir komponentdədir; `PokemonCard` və `TeamList` bu konstantı ayrıca yaratmır.
 
 ```jsx
   return <img src={url} alt={name} className={`${styles.sprite} ${styles[size]}`} />
