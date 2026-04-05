@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { toast, ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import { getRandomPokemon } from './data/pokemon'
 import PokemonCard from './components/PokemonCard'
 import TeamList from './components/TeamList'
@@ -35,6 +37,7 @@ export default function App() {
   }
 
   function handleAdd(pokemon) {
+    toast.success(`${pokemon.name} selected! 🎉`, { position: 'top-right' })
     saveTeam((prev) => {
       const exists = prev.some((entry) => entry.pokemon.id === pokemon.id)
       if (exists) return updateCount(prev, pokemon.id, +1)
@@ -53,7 +56,12 @@ export default function App() {
   }
 
   function handleRemove(id) {
+    
+    const pokemon = team.find((entry) => entry.pokemon.id === id)?.pokemon
     saveTeam((prev) => prev.filter(({ pokemon }) => pokemon.id !== id))
+    if (pokemon) {
+      toast.error(`${pokemon.name} Removed from team! 😢`, { position: 'top-right' })
+    }
   }
 
   return (
@@ -78,6 +86,7 @@ export default function App() {
       )}
 
       <TeamStats team={team} />
+      <ToastContainer />
     </div>
   )
 }
