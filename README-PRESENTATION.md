@@ -1,4 +1,4 @@
-# Pokemon Team Manager — Müəllimə Təqdimat
+# Pokemon Team Manager —Təqdimat
 
 Bu sənəd layihənin **niyə belə yazıldığını**, hər funksiyanın və state-in **məqsədini** kod nümunələri ilə izah edir.
 
