@@ -1,0 +1,46 @@
+.btn {
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #fff;
+  transition: filter 0.15s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn:hover {
+  filter: brightness(0.88);
+}
+
+/* "Add to Team" */
+.primary {
+  background: #2979ff;
+  padding: 8px 14px;
+  font-size: 0.9rem;
+}
+
+/* "Remove" */
+.danger {
+  background: #d32f2f;
+  padding: 6px 14px;
+  font-size: 0.9rem;
+}
+
+/* "+" */
+.inc {
+  background: #2e7d32;
+  width: 32px;
+  height: 32px;
+  font-size: 1.2rem;
+}
+
+/* "-" */
+.dec {
+  background: #ffa000;
+  width: 32px;
+  height: 32px;
+  font-size: 1.2rem;
+}
+
